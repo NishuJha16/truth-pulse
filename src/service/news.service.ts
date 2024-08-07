@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "d371e481475a4b7da61dc19363d258ae";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const getAllNews = (type: string) => {
   const response = axios.get(
