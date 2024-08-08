@@ -122,7 +122,7 @@ const TopHeadlines = () => {
             </Box>
           </Paper>
         ))}
-        {!loading && error && (
+        {!loading && !articles?.length && (
           <Box
             display={"flex"}
             gap={1}

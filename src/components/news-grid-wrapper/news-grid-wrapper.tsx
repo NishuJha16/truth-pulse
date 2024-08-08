@@ -87,7 +87,7 @@ const NewsGridWrapper = ({ type, getGridColumns }: any) => {
                 ?.map((data, index) => <Article news={data} key={index} />)}
         </Masonry>
       </ResponsiveMasonry>
-      {error && !loading && (
+      {!articles.length && !loading && (
         <Box
           sx={{
             display: "flex",
