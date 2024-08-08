@@ -1,6 +1,6 @@
 import { Box, Chip, Skeleton, Typography } from "@mui/material";
 import { Item, formatDate } from "./news-grid-wrapper";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 
 const Article = ({ news }: any) => {
@@ -33,18 +33,19 @@ const Article = ({ news }: any) => {
           cursor: "pointer",
         }}
       />
-      {imgLoading && news.urlToImage && (
+      {imgLoading && news.image && (
         <Skeleton variant="rectangular" width="100%" height={150} />
       )}
-      {news.urlToImage && (
+      {news.image && (
         <img
-          src={`${news.urlToImage}`}
+          src={`${news.image}`}
           style={{
             width: "100%",
             height: "auto",
             display: "block",
           }}
           onLoad={() => setImageLoading(false)}
+          alt="news_img"
         />
       )}
       <Box display={"flex"} flexDirection={"column"} gap={1} padding={2}>
@@ -57,7 +58,6 @@ const Article = ({ news }: any) => {
           {news.title}
         </Typography>
         <Typography variant="caption" fontSize={10} color="text.secondary">
-          By {news.author} on
           <b>{news?.publishedAt && ` ${formatDate(news?.publishedAt)}`}</b>
         </Typography>
         <Typography variant="caption" color={"text.primary"}>

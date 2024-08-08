@@ -1,10 +1,9 @@
-import { Box, Paper, Skeleton, Typography, styled } from "@mui/material";
+import { Box, Paper, Skeleton, styled } from "@mui/material";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { format } from "date-fns";
 import { Fragment, useEffect, useState } from "react";
 import { getAllNews } from "../../service/news.service";
 import Article from "./article";
-import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import { useOutletContext } from "react-router-dom";
 import NoResultsFound from "./no-results";
 
@@ -45,7 +44,7 @@ const NewsGridWrapper = ({ type, getGridColumns }: any) => {
         <Skeleton variant="text" width="90%" />
         <Skeleton variant="text" width="90%" />
         <Skeleton variant="text" width="40%" />
-        {index % 2 == 0 && (
+        {index % 2 === 0 && (
           <Fragment>
             <Skeleton variant="text" width="90%" />
             <Skeleton variant="text" width="40%" />
@@ -70,18 +69,12 @@ const NewsGridWrapper = ({ type, getGridColumns }: any) => {
   };
 
   useEffect(() => {
-    if (type) {
-      getNewsData(type);
-    }
-  }, [type]);
-
-  useEffect(() => {
     if (queryParam) {
       getNewsData(queryParam);
     } else {
       getNewsData(type);
     }
-  }, [queryParam]);
+  }, [queryParam, type]);
 
   return (
     <Box>

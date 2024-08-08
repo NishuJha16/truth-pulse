@@ -59,6 +59,7 @@ const CurrentWeather = () => {
                   src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                   width={36}
                   height={36}
+                  alt="weather"
                 />
               </Box>
               <Box
