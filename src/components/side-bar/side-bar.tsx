@@ -65,7 +65,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
         },
       }}
     >
-      <List>
+      <List sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
         {links.map((link) => (
           <ListItemButton
             component={Link}
@@ -73,6 +73,9 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
             key={link.text}
             selected={location.pathname === link.path}
             sx={{
+              marginRight: 2,
+              borderRadius: 2,
+              padding: "4px 8px",
               "&.Mui-selected": {
                 backgroundColor: "rgba(0, 0, 0, 0.08)",
                 color: "primary.main",
